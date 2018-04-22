@@ -1,6 +1,7 @@
 package com.example.demo.bean.po;
 
 import com.example.demo.bean.model.TeamModel;
+import com.example.demo.helper.StrUtil;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,12 +26,28 @@ public class TeamPO {
 
     public TeamPO(TeamModel teamModel) {
         name = teamModel.getName();
-        if (teamModel.getPic() != null)
+        if (teamModel.getPic() != null && !teamModel.getPic().equals(""))
             pic = teamModel.getPic();
-        if (teamModel.getNote() != null)
+        if (StrUtil.isEmpty(teamModel.getNote()))
             note = teamModel.getNote();
         if (teamModel.getLeaderId() != null)
             leaderId = teamModel.getLeaderId();
+    }
+
+    public TeamPO(TeamPO po, TeamModel teamModel) {
+        if (teamModel.getName() != null) {
+            this.name = teamModel.getName();
+        }
+        if (StrUtil.isEmpty(teamModel.getPic())){
+            this.setPic(teamModel.getPic());
+        }
+
+        if (StrUtil.isEmpty(teamModel.getNote())){
+            this.setNote(teamModel.getNote());
+        }
+        if (teamModel.getLeaderId() != null && teamModel.getLeaderId() != 0){
+            this.setLeaderId(teamModel.getLeaderId());
+        }
     }
 
     public int getId() {

@@ -4,8 +4,10 @@ package com.example.demo.bean.po;
 import com.example.demo.bean.model.VolunteerModel;
 import com.example.demo.helper.Encrypt;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class VolunteerPO {
 
     @Id

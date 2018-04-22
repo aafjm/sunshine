@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Calendar;
 import java.util.List;
 
 
@@ -35,6 +34,16 @@ public class ApplyActivityDao implements IApplyActivityDao {
     @Override
     public List<ApplyActivityPO> findAllVolsByActId(int id, int status) {
         List<ApplyActivityPO> list = jdbcTemplate.query("select * from applyActivity where id = ? and status = ?", new Object[]{id, status}, new BeanPropertyRowMapper(ApplyActivityPO.class));
+        if (list != null && list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<ApplyActivityPO> findAllVolsByStatus(int status) {
+        List<ApplyActivityPO> list = jdbcTemplate.query("select * from applyActivity where status = ?", new Object[]{status}, new BeanPropertyRowMapper(ApplyActivityPO.class));
         if (list != null && list.size() > 0) {
             return list;
         } else {

@@ -46,5 +46,11 @@ public class TeamDao implements ITeamDao {
                 po.getName(), po.getPic(), po.getLeaderId(), po.getNote());
     }
 
+    @Override
+    public int update(TeamPO po) {
+        return jdbcTemplate.update("update team SET name=?, pic=?, leadId=?, note=?, modtime=unix_timestamp()" +
+                        "where id = ?)",
+                po.getName(), po.getPic(), po.getLeaderId(), po.getNote(), po.getId());
+    }
 
 }

@@ -13,4 +13,6 @@ public interface IApplyActivityDao {
 
     List<ApplyActivityPO> findAllVolsByActId(int id, int status);
 
+    List<ApplyActivityPO> findAllVolsByStatus(int status);
+
 }

@@ -113,7 +113,6 @@ public class ActivityController {
         data.sortPage();
 
         data.setNum(data.getList() != null ? data.getList().size() : 0);
-
         return new ReturnJo(true, "查询成功", 200, data);
     }
 

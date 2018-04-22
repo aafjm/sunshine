@@ -30,10 +30,10 @@ public class ActivityDao implements IActivityDao {
     @Override
     public int update(ActivityPO Activity) {
         return jdbcTemplate.update("update activity set name=?, teamId=?, startDate=?, endDate=?, note=?, maxNum=?, " +
-                        "type=?, status=?, addtime=?, modtime=? where id = ?",
+                        "type=?, status=?, modtime=unix_timestamp() where id = ?",
                 Activity.getName(), Activity.getTeamId(), Activity.getStartDate(),
                 Activity.getEndDate(), Activity.getNote(), Activity.getMaxNum(), Activity.getType(),
-                Activity.getStatus(), Activity.getAddtime(), Activity.getEndDate(), Activity.getId());
+                Activity.getStatus(), Activity.getId());
     }
 
     @Override

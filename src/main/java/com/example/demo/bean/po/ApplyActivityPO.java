@@ -1,5 +1,7 @@
 package com.example.demo.bean.po;
 
+import com.example.demo.bean.model.ApplyActivityModel;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -15,6 +17,12 @@ public class ApplyActivityPO {
 
 
     public ApplyActivityPO() {
+    }
+
+    public ApplyActivityPO(ApplyActivityModel model, int status){
+        this.volunteerId = model.getVolunteerId();
+        this.activityId = model.getActivityId();
+        this.status = status;
     }
 
     public int getId() {

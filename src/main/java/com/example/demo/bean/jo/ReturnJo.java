@@ -3,14 +3,14 @@ package com.example.demo.bean.jo;
 
 public class ReturnJo {
     private boolean status;
-    private String msg;
+    private String message;
     private int code;
     private Object data;
 
 
-    public ReturnJo(boolean status, String msg, int code, Object data) {
+    public ReturnJo(boolean status, String message, int code, Object data) {
         this.status = status;
-        this.msg = msg;
+        this.message = message;
         this.code = code;
         this.data = data;
     }
@@ -23,12 +23,16 @@ public class ReturnJo {
         this.status = status;
     }
 
-    public String getMsg() {
-        return msg;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public int getCode() {

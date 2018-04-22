@@ -5,12 +5,25 @@ package com.example.demo.bean.model;
  */
 public class TeamModel {
 
+    private int id;
     private String name;
     private String pic;
     private Integer leaderId;
     private String note;
 
     public TeamModel() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLeaderId(Integer leaderId) {
+        this.leaderId = leaderId;
     }
 
     public String getName() {

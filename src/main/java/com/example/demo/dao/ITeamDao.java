@@ -15,4 +15,6 @@ public interface ITeamDao {
 
     int add(TeamPO po);
 
+    int update(TeamPO po);
+
 }

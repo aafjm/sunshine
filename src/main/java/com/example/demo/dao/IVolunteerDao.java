@@ -13,4 +13,6 @@ public interface IVolunteerDao {
     int update(VolunteerPO po);
 
     VolunteerPO findVolunteerById(int id);
+
+    List<VolunteerPO> getAllVols();
 }
