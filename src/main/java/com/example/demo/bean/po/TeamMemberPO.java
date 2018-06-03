@@ -1,5 +1,7 @@
 package com.example.demo.bean.po;
 
+import com.example.demo.bean.model.ApplyTeamModel;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -18,6 +20,11 @@ public class TeamMemberPO {
     private long modtime;
 
     public TeamMemberPO() {
+    }
+
+    public TeamMemberPO(ApplyTeamModel model){
+        teamId = model.getTeamId();
+        memberId = model.getVolunteerId();
     }
 
     public int getId() {

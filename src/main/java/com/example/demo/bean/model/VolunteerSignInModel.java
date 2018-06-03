@@ -5,13 +5,15 @@ package com.example.demo.bean.model;
  */
 public class VolunteerSignInModel {
     private int id;
+    private String mobile;
     private String pwd;
 
     public VolunteerSignInModel() {
     }
 
-    public VolunteerSignInModel(int id, String pwd) {
+    public VolunteerSignInModel(int id, String mobile, String pwd) {
         this.id = id;
+        this.mobile = mobile;
         this.pwd = pwd;
     }
 
@@ -29,5 +31,13 @@ public class VolunteerSignInModel {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

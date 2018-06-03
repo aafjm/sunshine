@@ -56,4 +56,14 @@ public class ActivityDao implements IActivityDao {
             return null;
         }
     }
+
+    @Override
+    public List<ActivityPO> getAllActivityByStatus(int status) {
+        List<ActivityPO> list = jdbcTemplate.query("select * from activity where status = ?", new Object[]{status}, new BeanPropertyRowMapper(ActivityPO.class));
+        if (list != null && list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
 }

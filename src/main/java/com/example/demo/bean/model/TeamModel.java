@@ -10,6 +10,7 @@ public class TeamModel {
     private String pic;
     private Integer leaderId;
     private String note;
+    private Integer status;
 
     public TeamModel() {
     }
@@ -56,5 +57,13 @@ public class TeamModel {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

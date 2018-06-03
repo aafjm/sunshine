@@ -30,8 +30,18 @@ public class TeamDao implements ITeamDao {
     }
 
     @Override
-    public List<TeamPO> getAllTeamPO(int status) {
+    public List<TeamPO> getAllTeamPOByStatus(int status) {
         List<TeamPO> list = jdbcTemplate.query("select * from team where status = ?", new Object[]{status}, new BeanPropertyRowMapper(TeamPO.class));
+        if (list != null && list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<TeamPO> getAllTeamPO() {
+        List<TeamPO> list = jdbcTemplate.query("select * from team", new BeanPropertyRowMapper(TeamPO.class));
         if (list != null && list.size() > 0) {
             return list;
         } else {
@@ -48,9 +58,9 @@ public class TeamDao implements ITeamDao {
 
     @Override
     public int update(TeamPO po) {
-        return jdbcTemplate.update("update team SET name=?, pic=?, leadId=?, note=?, modtime=unix_timestamp()" +
-                        "where id = ?)",
-                po.getName(), po.getPic(), po.getLeaderId(), po.getNote(), po.getId());
+        return jdbcTemplate.update("update team SET name=?, pic=?, leaderId=?, note=?, status = ?, modtime=unix_timestamp()" +
+                        " where id = ?",
+                po.getName(), po.getPic(), po.getLeaderId(), po.getNote(),po.getStatus(), po.getId());
     }
 
 }

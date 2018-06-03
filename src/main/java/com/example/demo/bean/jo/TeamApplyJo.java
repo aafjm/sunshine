@@ -16,6 +16,15 @@ public class TeamApplyJo {
     public TeamApplyJo() {
     }
 
+    public TeamApplyJo(int id, String volName, String mobile, int teamId, String teamName, int status) {
+        this.id = id;
+        this.volName = volName;
+        this.mobile = mobile;
+        this.teamId = teamId;
+        this.teamName = teamName;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }

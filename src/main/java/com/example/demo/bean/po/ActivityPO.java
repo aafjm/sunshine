@@ -4,7 +4,6 @@ import com.example.demo.bean.model.ActivityModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Calendar;
 
 
 @Entity
@@ -14,8 +13,8 @@ public class ActivityPO {
     private int id;
     private String name;
     private int teamId;
-    private String startDate;
-    private String endDate;
+    private long startDate;
+    private long endDate;
     private String note;
     private Integer maxNum;
     private Integer type;
@@ -37,17 +36,18 @@ public class ActivityPO {
         this.status = 0;
     }
 
-    public ActivityPO(ActivityPO po, ActivityModel model) {
+    public static void getActivityPO(ActivityPO po, ActivityModel model) {
+
         if (model.getName() != null && !model.getName().equals("")) {
             po.setName(model.getName());
         }
-        if (model.getTeamId() != 0) {
+        if (model.getTeamId()!= null && model.getTeamId() != 0) {
             po.setTeamId(model.getTeamId());
         }
-        if (model.getStartDate() != null && !model.getStartDate().equals("")) {
+        if (model.getStartDate() != 0L) {
             po.setStartDate(model.getStartDate());
         }
-        if (model.getEndDate() != null && !model.getEndDate().equals("")) {
+        if (model.getEndDate() != 0L) {
             po.setEndDate(model.getEndDate());
         }
         if (model.getNote() != null && !model.getNote().equals("")) {
@@ -89,20 +89,32 @@ public class ActivityPO {
         this.teamId = teamId;
     }
 
-    public String getStartDate() {
+    public long getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(long startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public long getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(long endDate) {
         this.endDate = endDate;
+    }
+
+    public void setMaxNum(Integer maxNum) {
+        this.maxNum = maxNum;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getNote() {

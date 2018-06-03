@@ -12,7 +12,11 @@ public interface IVolunteerDao {
 
     int update(VolunteerPO po);
 
+    void updateStatus(int id, int status);
+
     VolunteerPO findVolunteerById(int id);
 
-    List<VolunteerPO> getAllVols();
+    VolunteerPO findVolunteerByMobile(String mobile);
+
+    List<VolunteerPO> getAllVols(int status);
 }

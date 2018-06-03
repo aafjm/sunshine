@@ -28,25 +28,41 @@ public class TeamPO {
         name = teamModel.getName();
         if (teamModel.getPic() != null && !teamModel.getPic().equals(""))
             pic = teamModel.getPic();
-        if (StrUtil.isEmpty(teamModel.getNote()))
+        if (!StrUtil.isEmpty(teamModel.getNote()))
             note = teamModel.getNote();
-        if (teamModel.getLeaderId() != null)
+        if (teamModel.getLeaderId() != null && teamModel.getLeaderId() != 0)
             leaderId = teamModel.getLeaderId();
     }
 
     public TeamPO(TeamPO po, TeamModel teamModel) {
+
+        id = teamModel.getId();
         if (teamModel.getName() != null) {
             this.name = teamModel.getName();
+        } else{
+            this.name = po.getName();
         }
-        if (StrUtil.isEmpty(teamModel.getPic())){
+        if (!StrUtil.isEmpty(teamModel.getPic())) {
             this.setPic(teamModel.getPic());
+        }else{
+            this.pic = po.getPic();
         }
 
-        if (StrUtil.isEmpty(teamModel.getNote())){
+        if (!StrUtil.isEmpty(teamModel.getNote())) {
             this.setNote(teamModel.getNote());
+        }else{
+            this.note = po.getNote();
         }
-        if (teamModel.getLeaderId() != null && teamModel.getLeaderId() != 0){
+        if (teamModel.getLeaderId() != null && teamModel.getLeaderId() != 0) {
             this.setLeaderId(teamModel.getLeaderId());
+        }else{
+            this.leaderId = po.getLeaderId();
+        }
+
+        if (teamModel.getStatus() != null && teamModel.getStatus() != 0) {
+            this.setStatus(teamModel.getStatus());
+        }else{
+            this.status = po.getStatus();
         }
     }
 

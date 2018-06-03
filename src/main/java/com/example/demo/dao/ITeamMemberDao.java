@@ -9,5 +9,13 @@ import java.util.List;
  */
 public interface ITeamMemberDao {
 
-    List<TeamMemberPO> getTeamMembersByStatus(int id, int status);
+    List<TeamMemberPO> getTeamMembersByStatus(int status);
+
+    List<TeamMemberPO> getTeamMembersByMemberId(int id);
+
+    List<TeamMemberPO> getTeamMembersByTeamId(int id, int status);
+
+    int addMember(TeamMemberPO po);
+
+    void updateMember(int id, int status);
 }

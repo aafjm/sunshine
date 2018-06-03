@@ -34,6 +34,12 @@ public class VolunteerDao implements IVolunteerDao {
     }
 
     @Override
+    public void updateStatus(int id, int status) {
+        jdbcTemplate.update("update volunteer set status=? where id=?", status, id);
+    }
+
+
+    @Override
     public VolunteerPO findVolunteerById(int id) {
         List<VolunteerPO> list = jdbcTemplate.query("select * from volunteer where id = ?", new Object[]{id}, new BeanPropertyRowMapper(VolunteerPO.class));
         if (list != null && list.size() > 0) {
@@ -45,8 +51,19 @@ public class VolunteerDao implements IVolunteerDao {
     }
 
     @Override
-    public List<VolunteerPO> getAllVols(){
-        List<VolunteerPO> list = jdbcTemplate.query("select * from volunteer where status = ?", new Object[]{0}, new BeanPropertyRowMapper(VolunteerPO.class));
+    public VolunteerPO findVolunteerByMobile(String mobile) {
+        List<VolunteerPO> list = jdbcTemplate.query("select * from volunteer where mobile = ?", new Object[]{mobile}, new BeanPropertyRowMapper(VolunteerPO.class));
+        if (list != null && list.size() > 0) {
+            VolunteerPO po = list.get(0);
+            return po;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<VolunteerPO> getAllVols(int status) {
+        List<VolunteerPO> list = jdbcTemplate.query("select * from volunteer where status = ?", new Object[]{status}, new BeanPropertyRowMapper(VolunteerPO.class));
         if (list != null && list.size() > 0) {
             return list;
         } else {

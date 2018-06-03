@@ -9,12 +9,18 @@ import java.util.List;
  */
 public interface ITeamDao {
 
-    List<TeamPO> getAllTeamPO(int status);
+    List<TeamPO> getAllTeamPOByStatus(int status);
+
+    List<TeamPO> getAllTeamPO();
 
     TeamPO getTeamById(int id);
 
     int add(TeamPO po);
 
     int update(TeamPO po);
+
+
+
+
 
 }

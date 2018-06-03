@@ -8,8 +8,8 @@ public class ActivityModel {
     private int id;
     private String name = "";
     private Integer teamId;
-    private String startDate = "";
-    private String endDate = "";
+    private long startDate;
+    private long endDate;
     private String note = "";
     private Integer maxNum;
     private Integer type = 0;
@@ -39,20 +39,35 @@ public class ActivityModel {
         this.teamId = teamId;
     }
 
-    public String getStartDate() {
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
+    public long getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public ActivityModel() {
+    }
+
+    public void setStartDate(long startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public long getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(long endDate) {
         this.endDate = endDate;
+    }
+
+    public void setMaxNum(Integer maxNum) {
+        this.maxNum = maxNum;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public String getNote() {

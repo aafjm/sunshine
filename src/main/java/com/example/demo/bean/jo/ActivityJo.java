@@ -8,8 +8,8 @@ public class ActivityJo {
     private String name;
     private int teamId;
     private String teamName;
-    private String startDate;
-    private String endDate;
+    private long startDate;
+    private long endDate;
     private String note;
     private Integer maxNum;
     private Integer status;
@@ -52,19 +52,19 @@ public class ActivityJo {
         this.teamId = teamId;
     }
 
-    public String getStartDate() {
+    public long getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(long startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public long getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(long endDate) {
         this.endDate = endDate;
     }
 

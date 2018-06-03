@@ -35,7 +35,7 @@ public class PageListJo<T> {
         List<T> cutList = new ArrayList<>();
         if (size > minNum) {
             for (int i = 0; i < size; i++) {
-                if (i < maxNum && i >= minNum) {
+                if (i < maxNum && i > minNum) {
                     cutList.add(list.get(i));
                 }
                 if (i > maxNum)

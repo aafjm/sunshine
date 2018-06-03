@@ -18,6 +18,7 @@ public class VolunteerJo {
     }
 
     public VolunteerJo(VolunteerPO po){
+        this.id = po.getId();
         this.name = po.getName();
         this.mobile = po.getMobile();
         this.email = po.getEmail();

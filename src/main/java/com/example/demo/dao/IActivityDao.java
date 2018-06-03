@@ -15,4 +15,6 @@ public interface IActivityDao {
 
     List<ActivityPO> getAllActivity();
 
+    List<ActivityPO> getAllActivityByStatus(int status);
+
 }

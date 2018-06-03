@@ -11,7 +11,7 @@ public class TeamJo {
     private String name;
     private String pic;
     private int leaderId;
-    private int leaderName;
+    private String leaderName;
     private String note;
     private long addtime;
 
@@ -24,7 +24,7 @@ public class TeamJo {
         pic = po.getPic();
         leaderId = po.getLeaderId();
         note = po.getNote();
-        addtime = po.getAddtime() * 1000;
+        addtime = po.getAddtime() * 1000L;
     }
 
     public int getId() {
@@ -67,6 +67,13 @@ public class TeamJo {
         this.note = note;
     }
 
+    public String getLeaderName() {
+        return leaderName;
+    }
+
+    public void setLeaderName(String leaderName) {
+        this.leaderName = leaderName;
+    }
 
     public long getAddtime() {
         return addtime;

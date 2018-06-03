@@ -33,7 +33,17 @@ public class ApplyActivityDao implements IApplyActivityDao {
 
     @Override
     public List<ApplyActivityPO> findAllVolsByActId(int id, int status) {
-        List<ApplyActivityPO> list = jdbcTemplate.query("select * from applyActivity where id = ? and status = ?", new Object[]{id, status}, new BeanPropertyRowMapper(ApplyActivityPO.class));
+        List<ApplyActivityPO> list = jdbcTemplate.query("select * from applyActivity where activityId = ? and status = ?", new Object[]{id, status}, new BeanPropertyRowMapper(ApplyActivityPO.class));
+        if (list != null && list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<ApplyActivityPO> findAllActsByVolId(int id) {
+        List<ApplyActivityPO> list = jdbcTemplate.query("select * from applyActivity where volunteerId = ?", new Object[]{id}, new BeanPropertyRowMapper(ApplyActivityPO.class));
         if (list != null && list.size() > 0) {
             return list;
         } else {
